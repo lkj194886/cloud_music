@@ -1,19 +1,10 @@
 # cloud_music
 ### vue_music重构版
-## Project setup
-```
-yarn install
-```
+    ```
+    cloud_music是一款音乐软件,开发语言(vue+uni-app).
+    数据提供(https://github.com/Binaryify/NeteaseCloudMusicApi)
+    ```
+## 使用 yarn install 更新依赖
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## 运行 yarn serve
 
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
