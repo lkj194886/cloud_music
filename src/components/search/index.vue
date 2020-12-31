@@ -1,7 +1,6 @@
 <template>
   <view class="search">
-      sb
-      <u-search :show-action="false" input-align="center"></u-search>
+      <u-search :show-action="false" input-align="center" placeholder="请输入歌手或者歌曲名"></u-search>
   </view>
 </template>
 
@@ -21,6 +20,6 @@ export default {
 
 <style lang="scss" scoped>
     .search{
-        margin-top: 50rpx;
+        margin-top: 40rpx;
     }
 </style>

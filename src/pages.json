@@ -7,15 +7,51 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "发现"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+			}
+		},
+		{
+			"path":"pages/cloud/index",
+			"style":{
+				"navigationBarTitleText":"云村"
 			}
 		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
+		"navigationBarTitleText": "cloud_music",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",
 		"navigationStyle": "custom"
+
+	},
+	"tabBar": {
+		"backgroundColor": "#FFFFFF",
+		"selectedColor":"#FA3534",
+		"borderStyle":"black",
+		"list":[{
+			"pagePath":"pages/index/index",
+			"iconPath":"static/icon/fx.png",
+			"selectedIconPath":"static/icon/fx_selected.png",
+			"text":"发现"
+		},
+		{
+			"pagePath":"pages/my/index",
+			"iconPath":"static/icon/my.png",
+			"selectedIconPath":"static/icon/my_selected.png",
+			"text":"我的"
+		},
+		{
+			"pagePath":"pages/cloud/index",
+			"iconPath":"static/icon/cloud.png",
+			"selectedIconPath":"static/icon/cloud_selected.png",
+			"text":"云村"
+		}]
 	}
 }
