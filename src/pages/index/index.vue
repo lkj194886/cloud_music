@@ -15,20 +15,24 @@
       <view class="play_text">
         <view class="play_text">推荐歌单</view>
         <view class="play_divider"></view>
-        <view class="play_more"><img src="../../static/icon/more.png" /></view>
+        <view class="play_more"><image src="../../static/more.png" /></view>
       </view>
 
       <view class="play_list">
-        <scroll-view scroll-x="true" class="scroll-view">
+        <scroll-view scroll-x="true" class="scroll-view" @scroll="scroll">
           <view
             class="play_item"
             v-for="(item, index) in recommendedPlayList"
             :key="index"
           >
-            <img :src="item.picUrl" />
-            <view class="play_title"
-              ><p>{{ item.name }}</p></view
-            >
+            <view class="imgg">
+              <navigator :url="'/components/play_details/index?id='+ item.id"
+                ><img :src="item.picUrl" />
+              </navigator>
+              <view class="play_title"
+                ><p>{{ item.name }}</p></view
+              >
+            </view>
           </view>
         </scroll-view>
       </view>
@@ -58,10 +62,10 @@ export default {
     this.getRecommendedPlayList();
   },
   methods: {
-    // scroll: function (e) {
-    //   console.log(e);
-    //   this.old.scrollTop = e.detail.scrollTop;
-    // },
+    scroll: function (e) {
+      console.log(e);
+      this.old.scrollTop = e.detail.scrollTop;
+    },
     //获取推荐歌单
     getRecommendedPlayList() {
       let opts = {
@@ -104,6 +108,7 @@ export default {
 
 <style lang="scss" scoped>
 .index {
+  
   display: flex;
   // flex-direction: column;
   align-items: center;
@@ -143,7 +148,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        img {
+        image {
           width: 40rpx;
           height: 40rpx;
         }
@@ -162,20 +167,23 @@ export default {
           display: inline-block;
           width: 30%;
           height: 200rpx;
-          .play_title {
+          .imgg {
             width: 100%;
-            height: 150rpx;
-            overflow: hidden;
-            white-space: normal;
-            p {
-              margin: 0 auto;
-              font-size: 24rpx;
+            .play_title {
+              width: 100%;
+              height: 150rpx;
+              overflow: hidden;
+              white-space: normal;
+              p {
+                margin: 0 auto;
+                font-size: 24rpx;
+                width: 100%;
+              }
+            }
+            img {
+              border-radius: 25rpx;
               width: 100%;
             }
-          }
-          img {
-            border-radius: 25rpx;
-            width: 100%;
           }
         }
 

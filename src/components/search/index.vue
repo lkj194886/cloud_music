@@ -20,6 +20,6 @@ export default {
 
 <style lang="scss" scoped>
     .search{
-        margin-top: 40rpx;
+        margin-top: 80rpx;
     }
 </style>
