@@ -28,14 +28,14 @@
 		{
 			"path": "components/play_details/index",
 			"style": {
-				// "navigationBarTitleText": "歌单详情",
-				"navigationStyle": "custom",
-				"navigationBarTextStyle": "white" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+				"navigationBarTitleText": "歌单详情",
+				// "navigationStyle": "custom",
+				"navigationBarTextStyle": "black" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
 			}
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "white",
+		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "cloud_music",
 		"navigationBarBackgroundColor": "#F8F8F8",
 		"backgroundColor": "#F8F8F8",

@@ -9,11 +9,14 @@
 export default {
     data() {
         return {
-            
+         
         }
     },
     components:{
       
+    },
+    onLoad(){
+         
     }
 };
 </script>

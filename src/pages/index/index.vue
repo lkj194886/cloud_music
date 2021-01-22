@@ -27,7 +27,7 @@
           >
             <view class="imgg">
               <navigator :url="'/components/play_details/index?id='+ item.id"
-                ><img :src="item.picUrl" />
+                ><img :src="item.picUrl" mode="scaleToFill" />
               </navigator>
               <view class="play_title"
                 ><p>{{ item.name }}</p></view
@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     scroll: function (e) {
-      console.log(e);
+      // console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
     },
     //获取推荐歌单
@@ -165,7 +165,7 @@ export default {
           margin-right: 30rpx;
           border-radius: 25rpx;
           display: inline-block;
-          width: 30%;
+          width: 32%;
           height: 200rpx;
           .imgg {
             width: 100%;
@@ -183,6 +183,7 @@ export default {
             img {
               border-radius: 25rpx;
               width: 100%;
+              height: 200rpx;
             }
           }
         }
