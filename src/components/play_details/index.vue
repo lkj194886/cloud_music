@@ -81,8 +81,8 @@ export default {
     justify-content: center;
     flex-wrap: wrap;
     padding-bottom: 50rpx;
-    border-bottom-left-radius: 25%;
-    border-bottom-right-radius: 25%;
+    border-bottom-left-radius: 20%;
+    border-bottom-right-radius: 20%;
     .img_header {
       width: 100%;
       display: flex;
