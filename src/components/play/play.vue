@@ -1,19 +1,30 @@
 <template>
-  <div class="play" :style="style">play</div>
+  <div class="play" :style="style" v-show="audioShow">
+    item
+  </div>
 </template>
 
 <script>
-
+	import {mapState,mapGetters} from "vuex";
 export default {
   props: {
     bottom:Number,
   },
   data: () => ({
-    style:{}
+    style:{},
   }),
-  computed: {},
+  computed: {
+    ...mapState(["src"]),
+    ...mapState(["audioShow"]),
+  },
   methods: {},
-  watch: {},
+  watch: {
+    src(){
+      if(this.src!='' && this.src!=undefined){
+          this.$audio.src = this.src
+      }
+    }
+  },
 
   // 组件周期函数--监听组件挂载完毕
   mounted() {
@@ -27,6 +38,7 @@ export default {
       }
     }else{
        this.style={
+         
           "width": "100%",
           "height": "100rpx",
           "background-color": "red",
@@ -34,6 +46,7 @@ export default {
           "bottom":this.bottom+"rpx",
       }
     }
+
       console.log(this.bottom);
   },
   // 组件周期函数--监听组件数据更新之前
@@ -51,6 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 .play{
-  display: none;
+  // display: none;
 }
 </style>

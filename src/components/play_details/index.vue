@@ -179,6 +179,7 @@
 <script>
 import navigation from "../navigation/index.vue";
 import play from "../../components/play/play.vue";
+import {	mapState,mapMutations} from "vuex";
 export default {
   components: {
     navigation,
@@ -204,7 +205,12 @@ export default {
   onReachBottom() {
     this.next();
   },
+  computed:{
+      ...mapState(["src"]),
+  },
   methods: {
+    	...mapMutations(["setSrc"]),
+    	...mapMutations(["setAudioShow"]),
     /**
      * 获取歌单详情
      */
@@ -272,7 +278,7 @@ export default {
         ids: Ids,
       };
       this.$request.get(opts, params).then((res) => {
-		console.log(res);
+	  
         this.songList = [...this.songList, ...res.data.songs];
         uni.hideLoading();
         //循环添加动画
@@ -321,11 +327,17 @@ export default {
     },
 	//歌曲列表点击事件
 	checkPlayItem(item){
-		uni.showToast({
-			title: '点击了'+item.name,
-			duration: 2000,
-			icon:"none"
-		});
+      let opts = {
+        url:"/song/url",
+        method: "get",
+      }
+      let param = {
+        "id":item.id
+      }
+      this.$api.getAudio(opts,param).then(res=>{
+        this.setSrc(res.data.data[0].url);
+        this.setAudioShow(true);
+      })
 	}, 
 	//mv图标点击事件
 	checkVideIcon(item){
@@ -334,7 +346,8 @@ export default {
 			duration: 2000,
 			icon:"none"
 		});
-	}
+	},
+
   },
 };
 </script>
@@ -528,6 +541,9 @@ export default {
           margin-right: 10rpx;
           width: 70rpx;
         }
+      }
+      .play_song_box_item:last-child{
+        margin-bottom: 150rpx;
       }
     }
   }
