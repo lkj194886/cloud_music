@@ -1,5 +1,7 @@
 <script>
+	import pageAnimation from './components/page-animation/index.vue'
 	export default {
+		mixins:[pageAnimation],
 		onLaunch: function() {
 			
 		},
