@@ -7,8 +7,10 @@ import store from '../store/index';
 audio.onTimeUpdate(() => {
         var songTimeCount = GetDateTime(audio.duration);
         var songPlayTime = GetDateTime(audio.currentTime);
+        var songPlayTimeLycric = parseInt(audio.currentTime);
         store.state.songTimeCount = songTimeCount;
         store.state.songPlayTime = songPlayTime;
+        store.state.songPlayTimeLycric = songPlayTimeLycric;
     })
     //监听播放完成
 audio.onEnded(() => {

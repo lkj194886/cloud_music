@@ -1,5 +1,5 @@
-// const baseUrl = 'http://192.168.1.103:3000';
-const baseUrl = "https://yunslu.com/mapi"
+const baseUrl = 'http://192.168.1.103:3000';
+// const baseUrl = "https://yunslu.com/mapi"
 
 const httpRequest = (opts, data) => {
     let httpDefaultOpts = {

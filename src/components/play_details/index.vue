@@ -196,11 +196,16 @@ export default {
       index: 20, //当前需要显示的条数
       indexs: 0, //上一次开始的条数
       animationStyle: {},
+      lrc:""
     };
   },
   onLoad: function (option) {
     this.playId = option.id;
     this.getPlayDetails();
+    
+  },
+  mounted(){
+    console.log(window.pageYOffset);
   },
   onReachBottom() {
     this.next();
@@ -330,6 +335,7 @@ export default {
     },
 	//歌曲列表点击事件
 	checkPlayItem(item){
+    this.getLyric(item.id);
       let opts = {
         url:"/song/url",
         method: "get",
@@ -338,18 +344,48 @@ export default {
         "id":item.id
       }
       this.$api.getAudio(opts,param).then(res=>{
+        this.getLyric(item.id)
         let audio = {
           id:item.id,
           src :res.data.data[0].url,
           name:item.name,
-          picUrl:item.al.picUrl
+          picUrl:item.al.picUrl,
+          songPlayLycric:this.lrc
         }
         this.setSrc(audio);
         this.setAudioShow(true);
-        // this.setAudioPicUrl(item.al.picUrl);
-        // this.setAudioPlayIndex()
       })
 	}, 
+  //获取歌词并进行处理
+   getLyric(id) {
+      let opt = {
+        url: "/lyric",
+        method: "get",
+      };
+      let param = {
+        id: id,
+      };
+      const lrc = {}
+      this.$request.get(opt, param).then((res) => {
+        // console.log(res.data.lrc.lyric);
+        let lyricArr = res.data.lrc.lyric.split("[").slice(1); // 先以[进行分割
+        let lrcObj = {};
+        lyricArr.forEach((item) => {
+          let arr = item.split("]"); // 再分割右括号
+          // 时间换算成秒
+          let m = parseInt(arr[0].split(":")[0]);
+          let s = parseInt(arr[0].split(":")[1]);
+          arr[0] = m * 60 + s;
+          if (arr[1] != "\n") {
+            // 去除歌词中的换行符
+            lrcObj[arr[0]] = arr[1];
+          }
+        });
+        // 存储数据
+        this.lrc = lrcObj;
+      
+      });
+    },
 	//mv图标点击事件
 	checkVideIcon(item){
 		uni.showToast({

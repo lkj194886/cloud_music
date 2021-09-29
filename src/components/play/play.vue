@@ -1,16 +1,19 @@
 <template>
   <view class="play" :style="style" v-show="audioShow">
+    
     <view class="play_box">
+      <navigator :url="'/components/play/play_details'">
       <view class="play_img">
         <image :src="audioContent.picUrl" mode="aspectFit" />
       </view>
+      </navigator>
       <!-- <view>{{this.$store.state.src[this.$store.state.audioPlayIndex].name}}</view> -->
       <view class="play_content">
         <view class="play_name">{{ audioContent.name }}</view>
         <view class="play_time" v-show="songTimeCount!='00:NaN'">{{songPlayTime}}/{{songTimeCount}}</view>
         <view class="play_toolbar">
           <!-- 上一首 -->
-          <view class="play_last" @click="last">
+          <view class="play_last" @click.stop="last">
             <svg
               t="1632896403114"
               class="icon"
@@ -29,11 +32,11 @@
           </view>
           <!-- 播放or暂停 -->
           <view class="play_stop">
-            <svg v-if="playShow" @click="stop" t="1632899380165" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6270" width="30" height="32"><path d="M426.666667 138.666667v746.666666a53.393333 53.393333 0 0 1-53.333334 53.333334H266.666667a53.393333 53.393333 0 0 1-53.333334-53.333334V138.666667a53.393333 53.393333 0 0 1 53.333334-53.333334h106.666666a53.393333 53.393333 0 0 1 53.333334 53.333334z m330.666666-53.333334H650.666667a53.393333 53.393333 0 0 0-53.333334 53.333334v746.666666a53.393333 53.393333 0 0 0 53.333334 53.333334h106.666666a53.393333 53.393333 0 0 0 53.333334-53.333334V138.666667a53.393333 53.393333 0 0 0-53.333334-53.333334z" fill="#5C5C66" p-id="6271"></path></svg>
-            <svg v-else @click="play" t="1632899451182" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7080" width="30" height="32"><path d="M128 138.666667c0-47.232 33.322667-66.666667 74.176-43.562667l663.146667 374.954667c40.96 23.168 40.853333 60.8 0 83.882666L202.176 928.896C161.216 952.064 128 932.565333 128 885.333333v-746.666666z" fill="#3D3D3D" p-id="7081"></path></svg>
+            <svg v-if="playShow" @click.stop="stop" t="1632899380165" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6270" width="30" height="32"><path d="M426.666667 138.666667v746.666666a53.393333 53.393333 0 0 1-53.333334 53.333334H266.666667a53.393333 53.393333 0 0 1-53.333334-53.333334V138.666667a53.393333 53.393333 0 0 1 53.333334-53.333334h106.666666a53.393333 53.393333 0 0 1 53.333334 53.333334z m330.666666-53.333334H650.666667a53.393333 53.393333 0 0 0-53.333334 53.333334v746.666666a53.393333 53.393333 0 0 0 53.333334 53.333334h106.666666a53.393333 53.393333 0 0 0 53.333334-53.333334V138.666667a53.393333 53.393333 0 0 0-53.333334-53.333334z" fill="#5C5C66" p-id="6271"></path></svg>
+            <svg v-else @click.stop="play" t="1632899451182" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="7080" width="30" height="32"><path d="M128 138.666667c0-47.232 33.322667-66.666667 74.176-43.562667l663.146667 374.954667c40.96 23.168 40.853333 60.8 0 83.882666L202.176 928.896C161.216 952.064 128 932.565333 128 885.333333v-746.666666z" fill="#3D3D3D" p-id="7081"></path></svg>
           </view>
           <!-- 下一首 -->
-          <view class="play_next" @click="next">
+          <view class="play_next" @click.stop="next">
             <svg
               t="1632896646344"
               class="icon"
@@ -57,6 +60,7 @@
         </view>
       </view>
     </view>
+    
   </view>
 </template>
 

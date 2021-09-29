@@ -10,16 +10,20 @@ const store = new Vuex.Store({
         audioPicUrl: null,
         audioPlayIndex: -1, //当前播放歌曲的下标    
         audioContent: {
+            id: "",
             index: "",
             src: "",
             picUrl: "",
             name: "",
             alName: "",
-            arName: ""
+            arName: "",
+            songPlayLycric: "",
         }, //当前播放歌曲的信息
         playShow: true, //播放暂停
         songTimeCount: "", //当前歌曲总时长
         songPlayTime: "", //当前歌曲播放时长
+        songPlayTimeLycric: "" //当前播放位置
+
     },
     mutations: {
         /**
@@ -96,9 +100,11 @@ const store = new Vuex.Store({
         },
         //渲染播放器组件内容
         replaceAudio(state) {
+            state.audioContent.id = state.src[state.audioPlayIndex].id;
             state.audioContent.src = state.src[state.audioPlayIndex].src;
             state.audioContent.picUrl = state.src[state.audioPlayIndex].picUrl;
             state.audioContent.name = state.src[state.audioPlayIndex].name;
+            state.audioContent.songPlayLycric = state.src[state.audioPlayIndex].songPlayLycric;
             state.audioContent.index = state.audioPlayIndex;
         },
         //播放暂停图标
