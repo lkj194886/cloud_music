@@ -207,10 +207,13 @@ export default {
   },
   computed:{
       ...mapState(["src"]),
+      ...mapState(["audioPlayIndex"]),
   },
   methods: {
     	...mapMutations(["setSrc"]),
     	...mapMutations(["setAudioShow"]),
+    	...mapMutations(["setAudioPicUrl"]),
+    	...mapMutations(["setAudioPlayIndex"]),
     /**
      * 获取歌单详情
      */
@@ -335,8 +338,16 @@ export default {
         "id":item.id
       }
       this.$api.getAudio(opts,param).then(res=>{
-        this.setSrc(res.data.data[0].url);
+        let audio = {
+          id:item.id,
+          src :res.data.data[0].url,
+          name:item.name,
+          picUrl:item.al.picUrl
+        }
+        this.setSrc(audio);
         this.setAudioShow(true);
+        // this.setAudioPicUrl(item.al.picUrl);
+        // this.setAudioPlayIndex()
       })
 	}, 
 	//mv图标点击事件

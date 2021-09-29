@@ -134,18 +134,6 @@ export default {
     this.getBanner();
     this.getRecommendedPlayList();
     this.getNewSongList();
-    //  window.onscroll = () => {
-    //   if (window.pageYOffset > 10) {
-    //       this.styles = {
-    //         "background-color":"rgba(105, 99, 99,.7)",
-    //     };
-    //     this.show = true;
-    //   } else {
-    //     this.styles = {
-    //     };
-    //     this.show = false;
-    //   }
-    // };
   },
   methods: {
     scroll: function (e) {
@@ -160,7 +148,7 @@ export default {
       };
 
       let params = {
-        limit: "6",
+        limit: "12",
       };
       this.$request.httpRequest(opts, params).then(
         (res) => {
