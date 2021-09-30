@@ -8,21 +8,21 @@
 >
 > ### 													   主页面
 >
-> <img src="https://z3.ax1x.com/2021/09/30/4o9iqg.png"  style="zoom:20%;" />
+> <img src="https://z3.ax1x.com/2021/09/30/4o9iqg.png"  style="zoom:10%;" />
 >
 > <h3 align="center">歌单详情</h3>
 >
-> <img src="https://z3.ax1x.com/2021/09/30/4o9PsS.png" style="zoom:20%;" />
+> <img src="https://z3.ax1x.com/2021/09/30/4o9PsS.png" style="zoom:10%;" />
 >
 > <h3 align="center">mini播放器</h3>
 >
-> <img src="https://z3.ax1x.com/2021/09/30/4o9pxf.png" style="zoom:20%;" />
+> <img src="https://z3.ax1x.com/2021/09/30/4o9pxf.png" style="zoom:10%;" />
 >
 > <h3 align="center">播放详情页</h3>
 >
-> <img src="https://z3.ax1x.com/2021/09/30/4o9Aaj.png" alt="a" style="zoom:20%;" />
+> <img src="https://z3.ax1x.com/2021/09/30/4o9Aaj.png" alt="a" style="zoom:10%;" />
 >
-> <img src="https://z3.ax1x.com/2021/09/30/4o9kZQ.png" alt="a" style="zoom:20%;" />
+> <img src="https://z3.ax1x.com/2021/09/30/4o9kZQ.png" alt="a" style="zoom:10%;" />
 >
 > 
 >
