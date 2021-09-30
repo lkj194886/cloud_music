@@ -2,7 +2,7 @@
 >
 > > cloud_music是vue-music的重构版
 >
-> 
+> ## API数据来源([网易云NodeJs版](https://binaryify.github.io/NeteaseCloudMusicApi/#/))
 >
 > # 效果预览
 >
