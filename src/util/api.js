@@ -4,7 +4,6 @@ import request from './request.js'
 export const getAudio = (opts, param) => {
     return request.get(opts, param);
 }
-
 export default {
     getAudio,
 }

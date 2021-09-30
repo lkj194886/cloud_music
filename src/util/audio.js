@@ -7,11 +7,17 @@ import store from '../store/index';
 audio.onTimeUpdate(() => {
         var songTimeCount = GetDateTime(audio.duration);
         var songPlayTime = GetDateTime(audio.currentTime);
-        var songPlayTimeLycric = parseInt(audio.currentTime);
+        var songPlayTimeLycric = audio.currentTime;
         store.state.songTimeCount = songTimeCount;
         store.state.songPlayTime = songPlayTime;
         store.state.songPlayTimeLycric = songPlayTimeLycric;
+       
     })
+    //监听播放事件
+audio.onPlay(()=>{
+    console.log(store.state.src[store.state.audioPlayIndex].name + "开始播放");
+    store.state.playShow = true;
+})
     //监听播放完成
 audio.onEnded(() => {
         console.log(store.state.src[store.state.audioPlayIndex].name + "播放完成");
@@ -25,10 +31,7 @@ audio.onError(() => {
             icon: "none"
         });
         console.log(store.state.src[store.state.audioPlayIndex].name + '播放错误');
-        // setTimeout(function() {
         next()
-            // }, 2000)
-
     })
     //监听停止事件
 audio.onPause(() => {

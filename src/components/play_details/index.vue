@@ -205,7 +205,7 @@ export default {
     
   },
   mounted(){
-    console.log(window.pageYOffset);
+    // console.log(window.pageYOffset);
   },
   onReachBottom() {
     this.next();
@@ -240,7 +240,7 @@ export default {
           this.playList = res.data.playlist;
           let height = "";
           if (res.data.playlist.description != "") {
-            height = "740rpx";
+            height = "770rpx";
           } else {
             height = "670rpx";
           }
@@ -249,13 +249,13 @@ export default {
           this.play_header_style = {
             background: "url('" + res.data.playlist.coverImgUrl + "')",
             "background-size": "cover",
-            filter: "blur(6px)",
+            filter: "blur(15px)",
             width: "100%",
             height: height,
             display: "flex",
             "justify-content": "center",
             "flex-wrap": "wrap",
-            "padding-bottom": "50rpx",
+            "padding-bottom": "60rpx",
           };
           this.trackIds = res.data.playlist.trackIds;
           //调用获取歌曲列表方法传入参数 Ids
@@ -335,7 +335,6 @@ export default {
     },
 	//歌曲列表点击事件
 	checkPlayItem(item){
-    this.getLyric(item.id);
       let opts = {
         url:"/song/url",
         method: "get",
@@ -343,53 +342,27 @@ export default {
       let param = {
         "id":item.id
       }
+      
       this.$api.getAudio(opts,param).then(res=>{
-        this.getLyric(item.id)
+        this.$request.getLyric(item.id).then(ress=>{
+        // lyric = ress;
         let audio = {
           id:item.id,
           src :res.data.data[0].url,
           name:item.name,
           picUrl:item.al.picUrl,
-          songPlayLycric:this.lrc
+          songPlayLycric:ress
         }
         this.setSrc(audio);
         this.setAudioShow(true);
       })
+        
+      })
 	}, 
-  //获取歌词并进行处理
-   getLyric(id) {
-      let opt = {
-        url: "/lyric",
-        method: "get",
-      };
-      let param = {
-        id: id,
-      };
-      const lrc = {}
-      this.$request.get(opt, param).then((res) => {
-        // console.log(res.data.lrc.lyric);
-        let lyricArr = res.data.lrc.lyric.split("[").slice(1); // 先以[进行分割
-        let lrcObj = {};
-        lyricArr.forEach((item) => {
-          let arr = item.split("]"); // 再分割右括号
-          // 时间换算成秒
-          let m = parseInt(arr[0].split(":")[0]);
-          let s = parseInt(arr[0].split(":")[1]);
-          arr[0] = m * 60 + s;
-          if (arr[1] != "\n") {
-            // 去除歌词中的换行符
-            lrcObj[arr[0]] = arr[1];
-          }
-        });
-        // 存储数据
-        this.lrc = lrcObj;
-      
-      });
-    },
 	//mv图标点击事件
 	checkVideIcon(item){
 		uni.showToast({
-			title: '点击了'+item.name+"MV",
+			title: '该功能暂未开放',
 			duration: 2000,
 			icon:"none"
 		});
@@ -435,6 +408,7 @@ export default {
 
     .play_description {
       margin-top: 20rpx;
+     
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
@@ -450,6 +424,7 @@ export default {
 
       .play_content {
         margin-top: 20rpx;
+         margin-bottom: 40rpx;
         text-align: center;
         width: 60%;
         color: #fff;

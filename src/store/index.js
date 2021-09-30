@@ -110,7 +110,7 @@ const store = new Vuex.Store({
         //播放暂停图标
         setPlayShow(state, flag) {
             state.playShow = flag;
-        }
+        },
     },
     actions: {}
 })

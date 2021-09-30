@@ -2,7 +2,9 @@
   <view class="navigation" :style="styles">
     <view :style="{height:iStatusBarHeight + 'px;width:100%'}"></view>
 
-    <view @click="back" class="back"><span class="iconfont icon-fanhui"></span></view>
+    <view @click="back" class="back">
+        <svg t="1632979484562" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3904" width="30" height="42"><path d="M142.805333 265.173333A58.666667 58.666667 0 1 0 59.861333 348.16l410.666667 410.666667a58.666667 58.666667 0 0 0 82.944 0l410.666667-410.666667a58.666667 58.666667 0 1 0-82.944-82.986667L512 634.368 142.805333 265.173333z" p-id="3905" fill="#ffffff"></path></svg>
+    </view>
      <view class="title" v-if="show">
        <view>{{title}}</view>
      </view>
@@ -24,21 +26,7 @@ export default {
     };
   },
   mounted() {
-    
     this.iStatusBarHeight = uni.getSystemInfoSync().statusBarHeight
-     window.onscroll = () => {
-      if (window.pageYOffset > 140) {
-          this.styles = {
-            "background-color":"rgba(105, 99, 99,.8)",
-        };
-        this.show = true;
-      } else {
-        this.styles = {
-        };
-        this.show = false;
-      }
-    };
-
   },
   methods: {
     back() {
@@ -72,7 +60,7 @@ export default {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 10px;
+    margin-left: 40rpx;
     color: #ffffff;
     span {
       font-size: 50rpx;
@@ -86,12 +74,6 @@ export default {
     align-items: center;
     font-size: 32rpx;
     width: 100%;
-   .title>view{
-     width: 60%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-   }
   }
 }
 </style>

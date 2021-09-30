@@ -9,7 +9,9 @@
       </navigator>
       <!-- <view>{{this.$store.state.src[this.$store.state.audioPlayIndex].name}}</view> -->
       <view class="play_content">
-        <view class="play_name">{{ audioContent.name }}</view>
+        <view class="play_name">
+          <span>{{ audioContent.name }}</span>
+        </view>
         <view class="play_time" v-show="songTimeCount!='00:NaN'">{{songPlayTime}}/{{songTimeCount}}</view>
         <view class="play_toolbar">
           <!-- 上一首 -->
@@ -162,6 +164,13 @@ export default {
         height: 20%;
         text-align: left;
         margin-left: 20rpx;
+      }
+      .play_name>span{
+        display:block;
+        width:260rpx;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
       }
       .play_time{
         width: 100%;

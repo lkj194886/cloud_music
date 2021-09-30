@@ -1,5 +1,6 @@
-const baseUrl = 'http://192.168.1.103:3000';
+// const baseUrl = 'http://192.168.1.103:3000';
 // const baseUrl = "https://yunslu.com/mapi"
+const baseUrl = " http://192.168.0.124:4000"
 
 const httpRequest = (opts, data) => {
     let httpDefaultOpts = {
@@ -64,8 +65,49 @@ const get = (opts, data) => {
     })
     return promise
 };
+
+export const getLyric = (id) => {
+    let opt = {
+        url: "/lyric",
+    };
+    let param = {
+        id: id,
+    };
+    let httpDefaultOpts = {
+        url: baseUrl + opt.url,
+        data: param,
+        method: "get",
+        header: {
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+        },
+        dataType: 'json',
+    }
+    let promise = new Promise(function(resolve, reject) {
+        uni.request(httpDefaultOpts).then(
+            (res) => {
+                let lrcObj = [];
+                if(res[1].data.lrc!=undefined) {
+                    let lyric = res[1].data.lrc.lyric.split("\n");
+                    lyric.forEach((item,index)=>{
+                        lrcObj.push(item)
+                    })
+                }
+                resolve(lrcObj)
+            }
+        ).catch(
+            (response) => {
+                uni.hideLoading();
+                reject(response)
+            }
+        )
+    })
+    // console.log(promise);
+    return promise
+}
 export default {
     baseUrl,
     httpRequest,
-    get
+    get,
+    getLyric
 }
