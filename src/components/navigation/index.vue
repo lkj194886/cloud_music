@@ -24,7 +24,6 @@ export default {
     };
   },
   mounted() {
-    
     this.iStatusBarHeight = uni.getSystemInfoSync().statusBarHeight
      window.onscroll = () => {
       if (window.pageYOffset > 140) {

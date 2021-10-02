@@ -1,6 +1,16 @@
-// const baseUrl = 'http://192.168.1.103:3000';
+let baseUrl = ''
+if (process.env.NODE_ENV === 'development') {
+    console.log('开发环境')
+    baseUrl = 'http://localhost:3000';
+} else {
+    console.log('生产环境')
+    baseUrl = 'https://yunslu.com/mapi/';
+}
 // const baseUrl = "https://yunslu.com/mapi"
-const baseUrl = " http://192.168.0.124:4000"
+// const baseUrl = " http://192.168.0.124:4000"
+
+// const baseUrl = 'https://yunslu.com/mapi/'; //H5下将地址修改为/api
+// const baseUrl = "/api"
 
 const httpRequest = (opts, data) => {
     let httpDefaultOpts = {
@@ -84,25 +94,25 @@ export const getLyric = (id) => {
         dataType: 'json',
     }
     let promise = new Promise(function(resolve, reject) {
-        uni.request(httpDefaultOpts).then(
-            (res) => {
-                let lrcObj = [];
-                if(res[1].data.lrc!=undefined) {
-                    let lyric = res[1].data.lrc.lyric.split("\n");
-                    lyric.forEach((item,index)=>{
-                        lrcObj.push(item)
-                    })
+            uni.request(httpDefaultOpts).then(
+                (res) => {
+                    let lrcObj = [];
+                    if (res[1].data.lrc != undefined) {
+                        let lyric = res[1].data.lrc.lyric.split("\n");
+                        lyric.forEach((item, index) => {
+                            lrcObj.push(item)
+                        })
+                    }
+                    resolve(lrcObj)
                 }
-                resolve(lrcObj)
-            }
-        ).catch(
-            (response) => {
-                uni.hideLoading();
-                reject(response)
-            }
-        )
-    })
-    // console.log(promise);
+            ).catch(
+                (response) => {
+                    uni.hideLoading();
+                    reject(response)
+                }
+            )
+        })
+        // console.log(promise);
     return promise
 }
 export default {

@@ -24,7 +24,7 @@ export default {
 <style lang="scss" scoped>
     .search{
         // background-color: red;
-       padding-top: 35rpx;
+       padding-top: 55rpx;
        padding-bottom: 35rpx;
         width:80%;
         // top:0;

@@ -52,7 +52,8 @@
     "tabBar": {
         "backgroundColor": "#FFFFFF",
         "selectedColor": "#FA3534",
-        "borderStyle": "black",
+        "borderStyle": "none",
+		
         "list": [{
                 "pagePath": "pages/index/index",
                 "iconPath": "static/icon/fx.png",
