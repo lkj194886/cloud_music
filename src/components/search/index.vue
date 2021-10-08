@@ -1,6 +1,6 @@
 <template>
   <view class="search">
-      <u-search :show-action="false" input-align="center" placeholder="请输入歌手或者歌曲名"></u-search>
+      <u-search :show-action="false" input-align="center" placeholder="请输入歌手或者歌曲名" @focus="go"></u-search>
   </view>
 </template>
 
@@ -14,6 +14,14 @@ export default {
     },
     components:{
       
+    },
+    methods: {
+        //跳转搜索详情页
+        go(){
+            uni.navigateTo({
+                 url: ''
+            });
+        }
     },
     onLoad(){
          

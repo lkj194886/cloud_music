@@ -1,77 +1,77 @@
 {
-    "easycom": {
-        // "^u-(.*)": "../node_modules/uview-ui/components/u-$1/u-$1.vue"
-        "^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
-        "tui-(.*)": "@/components/thorui/tui-$1/tui-$1.vue"
-    },
-    "pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
-        {
-            "path": "pages/index/index",
-            "style": {
-                "navigationBarTitleText": "发现"
-                    // "navigationStyle": "custom"
-            }
-        },
-        {
-            "path": "pages/my/index",
-            "style": {
-                "navigationBarTitleText": "我的"
-                    // "navigationStyle": "custom"
-            }
-        },
-        {
-            "path": "pages/cloud/index",
-            "style": {
-                "navigationBarTitleText": "云村"
-            }
-        },
-        {
-            "path": "components/play_details/index",
-            "style": {
-                "navigationBarTitleText": "歌单详情",
-                // "navigationStyle": "custom",
-                "navigationBarTextStyle": "black" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
-            }
-        },
-        {
-            "path": "components/play/play_details",
-            "style": {
-                "navigationBarTitleText": "歌曲详情",
-                // "navigationStyle": "custom",
-                "navigationBarTextStyle": "black"
-            }
-        }
-    ],
-    "globalStyle": {
-        "navigationBarTextStyle": "black",
-        "navigationBarTitleText": "cloud_music",
-        "navigationBarBackgroundColor": "#F8F8F8",
-        "backgroundColor": "#F8F8F8",
-        "navigationStyle": "custom"
-    },
-    "tabBar": {
-        "backgroundColor": "#FFFFFF",
-        "selectedColor": "#FA3534",
-        "borderStyle": "none",
-		
-        "list": [{
-                "pagePath": "pages/index/index",
-                "iconPath": "static/icon/fx.png",
-                "selectedIconPath": "static/icon/fx_selected.png",
-                "text": "发现"
-            },
-            {
-                "pagePath": "pages/my/index",
-                "iconPath": "static/icon/my.png",
-                "selectedIconPath": "static/icon/my_selected.png",
-                "text": "我的"
-            },
-            {
-                "pagePath": "pages/cloud/index",
-                "iconPath": "static/icon/cloud.png",
-                "selectedIconPath": "static/icon/cloud_selected.png",
-                "text": "云村"
-            }
-        ]
-    }
+	"easycom": {
+		// "^u-(.*)": "../node_modules/uview-ui/components/u-$1/u-$1.vue"
+		"^u-(.*)": "uview-ui/components/u-$1/u-$1.vue",
+		"tui-(.*)": "@/components/thorui/tui-$1/tui-$1.vue"
+	},
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "发现"
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/my/index",
+			"style": {
+				"navigationBarTitleText": "我的"
+				// "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/cloud/index",
+			"style": {
+				"navigationBarTitleText": "云村"
+			}
+		},
+		{
+			"path": "components/play_details/index",
+			"style": {
+				"navigationBarTitleText": "歌单详情",
+				// "navigationStyle": "custom",
+				"navigationBarTextStyle": "black" // 状态栏字体为白色，只能为 white-白色，black-黑色 二选一
+			}
+		},
+		{
+			"path": "components/play/play_details",
+			"style": {
+				"navigationBarTitleText": "歌曲详情",
+				// "navigationStyle": "custom",
+				"navigationBarTextStyle": "black"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "cloud_music",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8",
+		"navigationStyle": "custom"
+	},
+	"tabBar": {
+		"backgroundColor": "#FFFFFF",
+		"selectedColor": "#FA3534",
+		"borderStyle": "none",
+		"list": [
+			{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/icon/fx.png",
+				"selectedIconPath": "static/icon/fx_selected.png",
+				"text": "发现"
+			},
+			{
+				"pagePath": "pages/my/index",
+				"iconPath": "static/icon/my.png",
+				"selectedIconPath": "static/icon/my_selected.png",
+				"text": "我的"
+			},
+			{
+				"pagePath": "pages/cloud/index",
+				"iconPath": "static/icon/cloud.png",
+				"selectedIconPath": "static/icon/cloud_selected.png",
+				"text": "云村"
+			}
+		]
+	}
 }
