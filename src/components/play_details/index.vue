@@ -38,13 +38,13 @@
 
 <script>
 import navigation from "../navigation/index.vue";
-import play from "../../components/play/play.vue";
+// import play from "../../components/play/play.vue";
 import songList from "../../components/song/songList.vue";
 import {	mapState,mapMutations} from "vuex";
 export default {
   components: {
     navigation,
-	  play,
+	  // play,
     songList
   },
   data() {
@@ -63,12 +63,12 @@ export default {
     };
   },
   onLoad: function (option) {
+    console.time("歌单详情页加载用时")
     this.playId = option.id;
     this.getPlayDetails();
     
   },
   beforeDestroy(){
-    console.log("歌单详情页面销毁了");
     this.songShow = false
   },
   mounted(){
@@ -126,6 +126,7 @@ export default {
           if(this.playList.trackIds.length){
               this.songShow = true;
           }
+          console.timeEnd("歌单详情页加载用时")
         },
         (error) => {
           console.log(error);

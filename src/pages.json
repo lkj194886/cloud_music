@@ -40,6 +40,14 @@
 				// "navigationStyle": "custom",
 				"navigationBarTextStyle": "black"
 			}
+		},
+		{
+			"path": "components/search/search",
+			"style": {
+				"navigationBarTitleText": "搜索",
+				// "navigationStyle": "custom",
+				"navigationBarTextStyle": "black"
+			}
 		}
 	],
 	"globalStyle": {

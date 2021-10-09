@@ -84,7 +84,7 @@
 <script>
 //搜索组件
 import search from "../../components/search/index.vue";
-import play from "../../components/play/play.vue";
+// import play from "../../components/play/play.vue";
 export default {
   data() {
     return {
@@ -101,16 +101,22 @@ export default {
   },
   components: {
     search,
-    play
+    // play
   },
   onLoad() {
+    if(undefined !== window.Notification){
+       if (Notification.permission === "default") {
+            Notification.requestPermission();
+       }
+    }
+    console.time("发现页加载用时");
     this.getBanner();
     this.getRecommendedPlayList();
     this.getNewSongList();
+    console.timeEnd("发现页加载用时")
   },
   methods: {
     scroll: function (e) {
-      // console.log(e);
       this.old.scrollTop = e.detail.scrollTop;
     },
     //获取推荐歌单
@@ -126,10 +132,12 @@ export default {
       this.$request.httpRequest(opts, params).then(
         (res) => {
           // console.log(res);
+          console.table(res.data.result)
+          // console.log(res);
           this.recommendedPlayList = res.data.result;
         },
         (error) => {
-          console.log(error);
+          console.error(error);
         }
       );
     },
@@ -158,11 +166,11 @@ export default {
       let params = {};
       this.$request.get(opts, params).then(
         (res) => {
-          console.log(res);
+          // console.log(res);
           this.newSongList = res.data.result;
         },
         (error) => {
-          console.log(error);
+          console.error(error);
         }
       );
     },
@@ -181,7 +189,8 @@ export default {
   margin-bottom: 500rpx;
   .serach {
     width: 100%;
-    display: flex;justify-content: center;
+    display: flex;
+    justify-content: center;
     position:fixed;
     z-index: 99;
     top: 0rpx;

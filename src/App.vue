@@ -12,6 +12,9 @@
 			
 		}
 	}
+	export const pageIndexSetting =[
+		{path:'components/search/search',index:999},
+	]
 </script>
 
 <style lang="scss">

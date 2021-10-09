@@ -4,6 +4,8 @@ import request from "./util/request.js"
 import uView from "uview-ui";
 import api from './util/api.js';
 import audio from './util/audio';
+import play from './components/play/play.vue';
+Vue.component(play);
 // import './static/js/iconfont.js'
 //引入vuex
 import store from './store'
