@@ -194,6 +194,7 @@ export default {
 
 <style lang="scss" scoped>
 .play_list {
+  
   margin-top: 40rpx;
   width: 100%;
   display: flex;

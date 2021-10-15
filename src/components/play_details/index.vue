@@ -220,7 +220,8 @@ export default {
       display: flex;
       justify-content: center;
       align-items: center;
-      box-shadow: 6rpx 6rpx 3rpx 0rpx rgb(170, 165, 165);
+      // box-shadow: 6rpx 6rpx 3rpx 0rpx rgb(170, 165, 165);
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;
       font-weight: 700;
       font-size: 30rpx;
 

@@ -120,6 +120,7 @@ export default {
 .play {
   // display: none;
   // border-top: 1rpx solid rgb(215, 213, 213);
+  background-color: red;
   .play_box {
     display: flex;
     width: 100%;
